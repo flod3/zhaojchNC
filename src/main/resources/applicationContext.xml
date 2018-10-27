@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="ConnectOracle" class="com.yonyou.dao.ConnectDatabase">
+            <property name="driver" value="oracle.jdbc.driver.OracleDriver"></property>
+            <property name="url" value="jdbc:oracle:thin:@192.168.1.5:1521:ncdb"></property>
+            <property name="pwd" value="NC65"></property>
+            <property name="usr" value="NC65"></property>
+
+        </bean>
+
+
+    <bean id="ConnectMySql" class="com.yonyou.dao.ConnectDatabase">
+        <property name="driver" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/yonyou"></property>
+        <property name="pwd" value="123"></property>
+        <property name="usr" value="root"></property>
+    </bean>
+
+
+</beans>

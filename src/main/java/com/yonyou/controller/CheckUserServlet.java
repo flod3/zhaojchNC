@@ -1,0 +1,29 @@
+package com.yonyou.controller;
+
+import com.yonyou.POJO.PasswordVO;
+import com.yonyou.dao.BaseDAO;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(name = "CheckUserServlet", urlPatterns = "/check")
+public class CheckUserServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request,response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username=request.getParameter("username");
+        String password=request.getParameter("password");
+        PasswordVO passwordVO=new PasswordVO();
+        passwordVO.setPk_pwd("321");
+        passwordVO.setUsername(username);
+        passwordVO.setPassword(password);
+        BaseDAO dao=new BaseDAO("MySql");
+        dao.insertVO(passwordVO);
+    }
+}
